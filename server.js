@@ -10,18 +10,18 @@ app.get('/', function(req, res){
     res.send("<h1>Welcome to the internet!</h1>")
 })
 
-try {
-    var httpsConfig = {
-        key  : fs.readFileSync('/etc/letsencrypt/live/aconlineventures.com/privkey.pem'),
-        cert : fs.readFileSync('/etc/letsencrypt/live/aconlineventures.com/cert.pem')
-    }
-    var httpsServer = HTTPS.createServer(httpsConfig, app)
-    httpsServer.listen(443)
-}
-catch(error){
-    console.log(error)
-    console.log('could not set up HTTPS')
-}
+// try {
+//     var httpsConfig = {
+//         key  : fs.readFileSync('/etc/letsencrypt/live/aconlineventures.com/privkey.pem'),
+//         cert : fs.readFileSync('/etc/letsencrypt/live/aconlineventures.com/cert.pem')
+//     }
+//     var httpsServer = HTTPS.createServer(httpsConfig, app)
+//     httpsServer.listen(443)
+// }
+// catch(error){
+//     console.log(error)
+//     console.log('could not set up HTTPS')
+// }
 finally {
     console.log('this code runs regardless of whether the above code succeeded or failed')
 }
@@ -29,6 +29,6 @@ finally {
 var httpApp = express()
 httpApp.use(function(req, res){
     console.log(req.url)
-    res.redirect('https://aconlineventures.com' + req.url)
+    
 })
 httpApp.listen(80)
