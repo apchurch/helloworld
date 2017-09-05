@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 var HTTP = require('http')
-var HTTPS = require('https')
+// var HTTPS = require('https')
 var fs = require('fs')
 
 
@@ -22,9 +22,9 @@ app.get('/', function(req, res){
 //     console.log(error)
 //     console.log('could not set up HTTPS')
 // }
-finally {
-    console.log('this code runs regardless of whether the above code succeeded or failed')
-}
+// finally {
+//     console.log('this code runs regardless of whether the above code succeeded or failed')
+// }
 
 var httpApp = express()
 httpApp.use(function(req, res){
